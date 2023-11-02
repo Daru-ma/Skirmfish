@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vrjwnaw5q3ux"]
+
+[ext_resource type="Texture2D" uid="uid://cnaqax4s8g7ry" path="res://bg_1-02.png" id="1_q2qos"]
+[ext_resource type="PackedScene" uid="uid://d2hj4404uot4g" path="res://fish.tscn" id="2_427t2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_q2qos")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Fish" parent="." instance=ExtResource("2_427t2")]

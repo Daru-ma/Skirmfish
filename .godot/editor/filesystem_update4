@@ -1,0 +1,9 @@
+res://main.tscn
+res://fish.tscn
+res://CircularMotion.gd
+res://PlayerControls.gd
+res://fish.gd
+res://Shooter.gd
+res://bullet.tscn
+res://bullet.gd
+res://enemy.tscn

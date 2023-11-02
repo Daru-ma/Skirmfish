@@ -1,0 +1,10 @@
+CollisionPolygon2D
+CollisionShape2D
+Sprite2D
+Area2D
+Timer
+AnimatableBody2D
+Node2D
+Node
+Camera2D
+CharacterBody2D

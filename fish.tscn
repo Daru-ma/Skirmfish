@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2hj4404uot4g"]
+
+[ext_resource type="Script" path="res://fish.gd" id="1_38a5a"]
+[ext_resource type="Texture2D" uid="uid://ckxqla41rd1x8" path="res://Prototype Assets/circle_light.png" id="1_gbmdi"]
+[ext_resource type="Script" path="res://CircularMotion.gd" id="2_05m7j"]
+[ext_resource type="Script" path="res://PlayerControls.gd" id="3_xevmu"]
+[ext_resource type="Script" path="res://BulletSource.gd" id="5_wwrmq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfxnq"]
+radius = 22.4216
+
+[node name="Fish" type="Area2D" groups=["Player"]]
+position = Vector2(2.78, 0)
+script = ExtResource("1_38a5a")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jfxnq")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gbmdi")
+
+[node name="CircularMotion" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("2_05m7j")
+body = NodePath("..")
+
+[node name="PlayerControls" type="Node" parent="."]
+script = ExtResource("3_xevmu")
+
+[node name="BulletSource" type="Node2D" parent="."]
+script = ExtResource("5_wwrmq")
+rate = 0.1
+strength = 100.0
+
+[node name="ShootTimer" type="Timer" parent="BulletSource"]
+autostart = true
+
+[connection signal="flip_pressed" from="PlayerControls" to="." method="_on_player_controls_flip_pressed"]
+[connection signal="timeout" from="BulletSource/ShootTimer" to="BulletSource" method="_on_shoot_timer_timeout"]
