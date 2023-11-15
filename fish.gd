@@ -1,17 +1,44 @@
 extends Area2D
 
-@onready var circular_motion=$CircularMotion
-# Called when the node enters the scene tree for the first time.
+class_name Fish
+
+signal target_changed(new_target:Node2D)
+
+@export var health:Health:
+	get:
+		return health
+	set(value):
+		health=value
+		health.on_hurt.connect(hurt)
+		health.on_death.connect(die)
+
+@export var target : Node2D:
+	set(new_target):
+		target=new_target
+		target_changed.emit(new_target)
+		
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	if not health: return
+	health.reset()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func hurt():
+	print("HP: ", health.health)
 	
-	pass
+func die():
+	queue_free()
+	
 
-
-func _on_player_controls_flip_pressed() -> void:
-	circular_motion.flip()
-	pass # Replace with function body.
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		var bullet = area
+		
+		if bullet.sender == self : return
+		
+		if not health: return
+		
+		health.damage(bullet.wave.damage)
+		
+		bullet.die()

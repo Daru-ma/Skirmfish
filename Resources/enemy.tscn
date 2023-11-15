@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvyyonk5ex48j"]
+
+[ext_resource type="Texture2D" uid="uid://du14rfgpb5efa" path="res://Prototype Assets/triangle_light.png" id="2_4vark"]
+[ext_resource type="PackedScene" uid="uid://c5tgasy3rinvw" path="res://bullet_source.tscn" id="3_0ewyj"]
+[ext_resource type="Script" path="res://Resources/bullet_burst.gd" id="4_n67xr"]
+[ext_resource type="Script" path="res://Resources/bullet_wave.gd" id="5_505x3"]
+
+[sub_resource type="GDScript" id="GDScript_tupgj"]
+script/source = "extends Fish
+"
+
+[sub_resource type="Resource" id="Resource_5mgb7"]
+script = ExtResource("5_505x3")
+force = 200.0
+color = Color(0, 0, 0, 1)
+damage = 1
+bullets_in_wave = 1
+angle_between_bullets = 10.0
+
+[sub_resource type="Resource" id="Resource_b7r5v"]
+script = ExtResource("4_n67xr")
+wave = SubResource("Resource_5mgb7")
+cooldown = 1.0
+
+[sub_resource type="Resource" id="Resource_dm8sv"]
+script = ExtResource("4_n67xr")
+wave = SubResource("Resource_5mgb7")
+cooldown = 0.2
+
+[node name="Enemy" type="Area2D"]
+script = SubResource("GDScript_tupgj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4vark")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(48, 44, -46, 46, -1, -47)
+
+[node name="BulletSource" parent="." instance=ExtResource("3_0ewyj")]
+bursts = Array[ExtResource("4_n67xr")]([SubResource("Resource_b7r5v"), SubResource("Resource_dm8sv")])
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="target_changed" from="." to="BulletSource" method="_on_target_changed"]

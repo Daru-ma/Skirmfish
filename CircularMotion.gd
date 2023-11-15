@@ -1,6 +1,7 @@
 extends Node
 @export var body: Node2D
 @export var target: Node2D
+@export var speed:float
 var target_position:Vector2:
 	get:
 		if target:
@@ -19,10 +20,10 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	angle+=delta*direction
+	angle+=delta*direction*speed
 	if abs(angle)>=2*PI:
 		angle=0
-	var new_position =target_position + Vector2(cos(angle), sin(angle)) * radius
+	var new_position = target_position + Vector2(cos(angle), sin(angle)) * radius
 	body.position=new_position
 	
 func flip():

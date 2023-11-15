@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BulletBurst" load_steps=2 format=3 uid="uid://e7w63lou10jf"]
+
+[ext_resource type="Script" path="res://Resources/bullet_burst.gd" id="1_dxw3q"]
+
+[resource]
+script = ExtResource("1_dxw3q")
+cooldown = 0.0
+waves = Array[Resource("res://Resources/bullet_wave.gd")]([])

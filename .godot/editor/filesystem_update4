@@ -1,9 +1,7 @@
-res://main.tscn
-res://fish.tscn
-res://CircularMotion.gd
-res://PlayerControls.gd
-res://fish.gd
-res://Shooter.gd
 res://bullet.tscn
-res://bullet.gd
-res://enemy.tscn
+res://spawner.gd
+res://Resources/player_health.tres
+res://bullet_source.tscn
+res://player_fish.tscn
+res://Resources/enemy.tscn
+res://main.tscn

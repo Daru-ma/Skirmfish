@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Health" load_steps=2 format=3 uid="uid://c21ooa8qjcfk1"]
+
+[ext_resource type="Script" path="res://Resources/health.gd" id="1_buc21"]
+
+[resource]
+script = ExtResource("1_buc21")
+max_health = 3
+god_mode = true

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://vrjwnaw5q3ux"]
+
+[ext_resource type="Texture2D" uid="uid://cnaqax4s8g7ry" path="res://bg_1-02.png" id="1_q2qos"]
+[ext_resource type="Script" path="res://main.gd" id="1_syuu6"]
+[ext_resource type="PackedScene" uid="uid://debg6ie4573lx" path="res://player_fish.tscn" id="2_427t2"]
+[ext_resource type="Resource" uid="uid://cfjeihjs2wh14" path="res://Resources/enemy_health.tres" id="2_qwxps"]
+[ext_resource type="Script" path="res://spawner.gd" id="6_kyv7x"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_syuu6")
+enemy_health = ExtResource("2_qwxps")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_q2qos")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_427t2")]
+
+[node name="Spawner" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+script = ExtResource("6_kyv7x")
+scene_path = "res://enemy.tscn"

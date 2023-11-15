@@ -1,16 +1,22 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698953497
+::res://::1700071715
+battle_manager.gd::GDScript::-1::1699293930::0::1::::<>Object<>::
 bg_1-02.png::CompressedTexture2D::5686269060263478042::1698935158::1698935162::1::::<><>::
-fish.tscn::PackedScene::9069411277684927932::1698953569::0::1::::<><>::res://fish.gd<>uid://ckxqla41rd1x8::::res://Prototype Assets/circle_light.png<>res://CircularMotion.gd<>res://PlayerControls.gd<>res://Shooter.gd
+bullet.gd::GDScript::-1::1699540703::0::1::::<>Area2D<>::
+bullet.tscn::PackedScene::6779588405470283170::1699557287::0::1::::<><>::res://bullet.gd<>uid://ckxqla41rd1x8
+BulletSource.gd::GDScript::-1::1699557199::0::1::::<>Node2D<>::
+bullet_source.tscn::PackedScene::6918095139601756516::1699557287::0::1::::<><>::res://BulletSource.gd
+CircularMotion.gd::GDScript::-1::1699554591::0::1::::<>Node<>::
+enemy_fish.gd::GDScript::-1::1699540703::0::1::::<>Fish<>::
+fish.gd::GDScript::-1::1699540854::0::1::::Fish<>Area2D<>::
 icon.svg::CompressedTexture2D::3920726747781266848::1698919368::1698919378::1::::<><>::
-main.tscn::PackedScene::1509646562462385359::1698953497::0::1::::<><>::uid://cnaqax4s8g7ry::::res://bg_1-02.png<>uid://d2hj4404uot4g::::res://fish.tscn
+main.gd::GDScript::-1::1699541039::0::1::::<>Node2D<>::
+main.tscn::PackedScene::1509646562462385359::1699557288::0::1::::<><>::uid://cnaqax4s8g7ry
+PlayerControls.gd::GDScript::-1::1699289815::0::1::::<>Node<>::
+player_fish.gd::GDScript::-1::1699543842::0::1::::<>Fish<>::
+player_fish.tscn::PackedScene::7442501892678169725::1699557287::0::1::::<><>::uid://ckxqla41rd1x8
 README.md::TextFile::-1::1698919458::0::1::::<><>::
-CircularMotion.gd::GDScript::-1::1698951048::0::1::::<>Node<>::
-PlayerControls.gd::GDScript::-1::1698949402::0::1::::<>Node<>::
-fish.gd::GDScript::-1::1698949328::0::1::::<>Area2D<>::
-bullet.tscn::PackedScene::6779588405470283170::1698953497::0::1::::<><>::res://bullet.gd<>uid://ckxqla41rd1x8::::res://Prototype Assets/circle_light.png
-bullet.gd::GDScript::-1::1698953377::0::1::::<>Area2D<>::
-Shooter.gd::GDScript::-1::1698953355::0::1::::<>Node2D<>::
+spawner.gd::GDScript::-1::1700071668::0::1::::<>Timer<>::
 ::res://Prototype Assets/::1698935161
 circle_dark.png::CompressedTexture2D::6136809483940223679::1698933949::1698933950::1::::<><>::
 circle_light.png::CompressedTexture2D::5523201653730633663::1698933949::1698933950::1::::<><>::
@@ -20,3 +26,11 @@ triangle_dark.png::CompressedTexture2D::2761318895014729657::1698933949::1698933
 triangle_light.png::CompressedTexture2D::8618504169301744538::1698933949::1698933950::1::::<><>::
 x_dark.png::CompressedTexture2D::4724246818543448031::1698933949::1698933950::1::::<><>::
 x_light.png::CompressedTexture2D::701203109139707723::1698933949::1698933950::1::::<><>::
+::res://Resources/::1700071668
+bullet_burst.gd::GDScript::-1::1700071611::0::1::::BulletBurst<>Resource<>::
+bullet_wave.gd::GDScript::-1::1699554885::0::1::::BulletWave<>Resource<>::
+enemy.tscn::PackedScene::8684255742137424279::1700071668::0::1::::<><>::uid://du14rfgpb5efa::::res://Prototype Assets/triangle_light.png<>uid://c5tgasy3rinvw::::res://bullet_source.tscn<>res://Resources/bullet_burst.gd<>res://Resources/bullet_wave.gd
+enemy_health.tres::Resource/Resource::6722489057949653986::1699554436::0::1::::<><>::res://Resources/health.gd
+health.gd::GDScript::-1::1699554435::0::1::::Health<>Resource<>::
+player_health.tres::Resource/Health::2820129551660460062::1700071668::0::1::::<><>::res://Resources/health.gd
+test_burst.tres::Resource/Resource::348208084444482731::1699538144::0::1::::<><>::res://Resources/bullet_burst.gd
