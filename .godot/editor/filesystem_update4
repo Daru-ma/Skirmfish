@@ -1,7 +1,4 @@
-res://bullet.tscn
-res://spawner.gd
-res://Resources/player_health.tres
-res://bullet_source.tscn
-res://player_fish.tscn
-res://Resources/enemy.tscn
-res://main.tscn
+res://BulletSource.gd
+res://fish.gd
+res://bullet.gd
+res://Resources/bullet_wave.gd

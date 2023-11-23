@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://vrjwnaw5q3ux"]
+[gd_scene load_steps=9 format=3 uid="uid://vrjwnaw5q3ux"]
 
 [ext_resource type="Texture2D" uid="uid://cnaqax4s8g7ry" path="res://bg_1-02.png" id="1_q2qos"]
 [ext_resource type="Script" path="res://main.gd" id="1_syuu6"]
 [ext_resource type="PackedScene" uid="uid://debg6ie4573lx" path="res://player_fish.tscn" id="2_427t2"]
 [ext_resource type="Resource" uid="uid://c21ooa8qjcfk1" path="res://Resources/enemy_health.tres" id="2_qwxps"]
+[ext_resource type="Script" path="res://health_bar.gd" id="6_26qhr"]
 [ext_resource type="Script" path="res://spawner.gd" id="6_kyv7x"]
+[ext_resource type="Resource" uid="uid://bggdeew5oapra" path="res://Resources/player_health.tres" id="7_p8brn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv3yu"]
+bg_color = Color(0.564706, 0.917647, 0.560784, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_syuu6")
@@ -25,5 +34,18 @@ autostart = true
 script = ExtResource("6_kyv7x")
 scene_path = "res://Resources/enemy.tscn"
 
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -542.0
+offset_top = 272.0
+offset_right = -90.0
+offset_bottom = 299.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_pv3yu")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("6_26qhr")
+health = ExtResource("7_p8brn")
+
 [connection signal="on_spawn" from="Spawner" to="." method="_on_spawner_on_spawn"]
+[connection signal="on_spawn" from="Spawner" to="Player" method="set_target"]
 [connection signal="timeout" from="Spawner" to="Spawner" method="_on_timeout"]

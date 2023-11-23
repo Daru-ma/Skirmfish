@@ -4,7 +4,6 @@
 
 [node name="BulletSource" type="Node2D"]
 script = ExtResource("1_hb43d")
-bursts = null
 rate = 0.5
 
 [node name="BurstTimer" type="Timer" parent="."]

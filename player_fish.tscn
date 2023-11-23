@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://debg6ie4573lx"]
+[gd_scene load_steps=12 format=3 uid="uid://debg6ie4573lx"]
 
 [ext_resource type="Texture2D" uid="uid://ckxqla41rd1x8" path="res://Prototype Assets/circle_light.png" id="1_gbmdi"]
 [ext_resource type="Script" path="res://player_fish.gd" id="1_j4jyo"]
@@ -6,9 +6,27 @@
 [ext_resource type="Resource" uid="uid://bggdeew5oapra" path="res://Resources/player_health.tres" id="2_qsuhi"]
 [ext_resource type="Script" path="res://PlayerControls.gd" id="3_xevmu"]
 [ext_resource type="PackedScene" uid="uid://c5tgasy3rinvw" path="res://bullet_source.tscn" id="5_bfi46"]
+[ext_resource type="Script" path="res://Resources/bullet_burst.gd" id="7_umrbq"]
+[ext_resource type="Script" path="res://Resources/bullet_wave.gd" id="8_m37dx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfxnq"]
 radius = 22.4216
+
+[sub_resource type="Resource" id="Resource_splqw"]
+script = ExtResource("8_m37dx")
+force = 200.0
+color = Color(0.294118, 0.717647, 1, 1)
+damage = 1
+bullets_in_wave = 1
+angle_between_bullets = 10.0
+predict = false
+home = false
+home_force = 100.0
+
+[sub_resource type="Resource" id="Resource_7g1f3"]
+script = ExtResource("7_umrbq")
+wave = SubResource("Resource_splqw")
+cooldown = 1.0
 
 [node name="PlayerFish" type="Area2D" groups=["player"]]
 position = Vector2(2.78, 0)
@@ -26,12 +44,14 @@ texture = ExtResource("1_gbmdi")
 [node name="CircularMotion" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("2_05m7j")
 body = NodePath("..")
+speed = 0.5
+radius = 300
 
 [node name="PlayerControls" type="Node" parent="."]
 script = ExtResource("3_xevmu")
 
 [node name="BulletSource" parent="." instance=ExtResource("5_bfi46")]
-bursts = null
+bursts = Array[ExtResource("7_umrbq")]([SubResource("Resource_7g1f3")])
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="target_changed" from="." to="BulletSource" method="_on_target_changed"]

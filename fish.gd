@@ -13,19 +13,23 @@ signal target_changed(new_target:Node2D)
 		health.on_death.connect(die)
 
 @export var target : Node2D:
-	set(new_target):
-		target=new_target
-		target_changed.emit(new_target)
+	set=set_target
+		
+
+func set_target(new_target):
+	target=new_target
+	target_changed.emit(new_target)
 		
 
 
 func _ready() -> void:
-	if not health: return
+	if not health: 
+		return
 	health.reset()
 
 
 func hurt():
-	print("HP: ", health.health)
+	pass
 	
 func die():
 	queue_free()

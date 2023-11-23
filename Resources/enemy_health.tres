@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_buc21")
 max_health = 3
-god_mode = true
+god_mode = false

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_f51hj")
-max_health = 3
-god_mode = true
+max_health = 10
+god_mode = false
